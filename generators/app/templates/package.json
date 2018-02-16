@@ -1,0 +1,64 @@
+{
+  "name": "<%= serviceName %>",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "serverless webpack",
+    "build:docker": "npm run build && cp Dockerfile .dockerignore dist/service",
+    "clean": "rm -rf dist",
+    "precommit": "lint-staged",
+    "deploy": "npm test && serverless deploy --verbose",
+    "deploy:docker": "npm run test && npm run build:docker && cd dist/service && node ../../node_modules/.bin/docker-cli publish <%= dockerNamespace %>/${npm_package_name} --tag $(git rev-parse HEAD)",
+    "format": "prettier --write '{,!(dist)/**/}*.js'",
+    "lint": "standard --fix",
+    "start": "npm run build && cd dist/service && node server.js",
+    "pretest": "npm run format && npm run lint",
+    "test": "ENVIRONMENT=test mocha --require @babel/register",
+    "verify": "npm run deploy -- --noDeploy",
+    "watch": "npm test -- --watch"
+  },
+  "dependencies": {
+    "@therockstorm/utils": "^1.0.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.40",
+    "@babel/preset-env": "^7.0.0-beta.40",
+    "@babel/register": "^7.0.0-beta.40",
+    "@therockstorm/docker-cli": "^1.0.1",
+    "aws-sdk": "^2.196.0",
+    "babel-loader": "^8.0.0-beta.0",
+    "babel-minify-webpack-plugin": "^0.3.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.1.1",
+    "mocha": "^5.0.1",
+    "prettier": "^1.10.2",
+    "serverless": "^1.26.0",
+    "serverless-webpack": "^4.3.0",
+    "standard": "^10.0.3",
+    "webpack": "^3.11.0",
+    "webpack-node-externals": "^1.6.0"
+  },
+  "private": true,
+  "lint-staged": {
+    "*.js": [
+      "prettier --write | standard --fix",
+      "git add"
+    ]
+  },
+  "babel": {
+    "presets": [
+      ["@babel/preset-env", { "targets": { "node": "6.10" } }]
+    ]
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "standard": {
+    "globals": [
+      "afterEach",
+      "beforeEach",
+      "describe",
+      "it"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+service: <%= serviceName %>
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  region: us-west-2
+  stage: ${env:ENVIRONMENT}
+  timeout: 6
+  memorySize: 128
+  environment:
+    ENVIRONMENT: ${self:provider.stage}
+
+plugins:
+  - serverless-webpack
+
+custom:
+  webpackIncludeModules: true
+
+functions:
+  <%= functionName %>:
+    handler: src/handler.handle

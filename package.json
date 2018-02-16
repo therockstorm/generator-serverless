@@ -1,0 +1,63 @@
+{
+  "name": "generator-serverless-node",
+  "version": "1.0.0",
+  "description": "Yeoman generator for Serverless Node.js functions.",
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "homepage": "https://github.com/therockstorm/generator-serverless-node",
+  "license": "MIT",
+  "author": {
+    "name": "Rocky Warren",
+    "url": "https://www.rockywarren.com"
+  },
+  "files": [
+    "generators"
+  ],
+  "main": "generators/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/therockstorm/generator-serverless-node"
+  },
+  "scripts": {
+    "precommit": "lint-staged",
+    "format": "prettier --write '{test/**/,generators/app/}*.js'",
+    "lint": "standard --fix",
+    "pretest": "npm run format && npm run lint",
+    "test": "mocha",
+    "watch": "npm test -- --watch"
+  },
+  "dependencies": {
+    "yeoman-generator": "^2.0.1"
+  },
+  "devDependencies": {
+    "husky": "^0.14.3",
+    "lint-staged": "^6.1.0",
+    "mocha": "^5.0.1",
+    "prettier": "^1.10.2",
+    "standard": "^10.0.3",
+    "yeoman-assert": "^3.1.0",
+    "yeoman-test": "^1.7.0"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write '{test/**/,generators/app/}*.js' | standard --fix",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "standard": {
+    "globals": [
+      "afterEach",
+      "beforeEach",
+      "describe",
+      "it"
+    ],
+    "ignore": [
+      "**/templates"
+    ]
+  }
+}
