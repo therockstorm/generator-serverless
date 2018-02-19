@@ -1,0 +1,13 @@
+{
+  "name": "<%= serviceName %>",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "sbt test assembly",
+    "deploy": "npm run build && serverless deploy --verbose",
+    "verify": "npm run deploy -- --noDeploy"
+  },
+  "devDependencies": {
+    "serverless": "^1.26.0"
+  },
+  "private": true
+}

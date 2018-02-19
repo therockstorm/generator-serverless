@@ -1,15 +1,15 @@
-# generator-serverless-node [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# generator-serverless
 
-Yeoman generator for Serverless Node.js functions.
+Yeoman generator for Serverless functions.
 
 ## Installing
 
 ```shell
 # Install dependencies
-npm install -g yo @therockstorm/generator-serverless-node
+npm install -g yo @therockstorm/generator-serverless
 
 # Generate a new project
-yo serverless-node
+yo @therockstorm/serverless
 ```
 
 ## Developing

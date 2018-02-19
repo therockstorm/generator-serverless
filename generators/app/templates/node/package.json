@@ -17,13 +17,13 @@
     "watch": "npm test -- --watch"
   },
   "dependencies": {
-    "@therockstorm/utils": "^1.0.3"
+    "@therockstorm/utils": "^1.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.40",
     "@babel/preset-env": "^7.0.0-beta.40",
     "@babel/register": "^7.0.0-beta.40",
-    "@therockstorm/docker-cli": "^1.0.1",
+    "@therockstorm/docker-cli": "^1.0.3",
     "aws-sdk": "^2.196.0",
     "babel-loader": "^8.0.0-beta.0",
     "babel-minify-webpack-plugin": "^0.3.0",
@@ -40,7 +40,8 @@
   "private": true,
   "lint-staged": {
     "*.js": [
-      "prettier --write | standard --fix",
+      "prettier --write",
+      "standard --fix",
       "git add"
     ]
   },

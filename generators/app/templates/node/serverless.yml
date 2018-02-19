@@ -17,5 +17,5 @@ custom:
   webpackIncludeModules: true
 
 functions:
-  <%= functionName %>:
+  func:
     handler: src/handler.handle

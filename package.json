@@ -1,11 +1,14 @@
 {
-  "name": "generator-serverless-node",
-  "version": "1.0.0",
+  "name": "@therockstorm/generator-serverless",
+  "version": "1.0.1",
   "description": "Yeoman generator for Serverless Node.js functions.",
   "keywords": [
     "yeoman-generator"
   ],
-  "homepage": "https://github.com/therockstorm/generator-serverless-node",
+  "homepage": "https://github.com/therockstorm/generator-serverless#readme",
+  "bugs": {
+    "url": "https://github.com/therockstorm/generator-serverless/issues"
+  },
   "license": "MIT",
   "author": {
     "name": "Rocky Warren",
@@ -17,7 +20,7 @@
   "main": "generators/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/therockstorm/generator-serverless-node"
+    "url": "git+https://github.com/therockstorm/generator-serverless.git"
   },
   "scripts": {
     "precommit": "lint-staged",
@@ -35,13 +38,14 @@
     "lint-staged": "^6.1.0",
     "mocha": "^5.0.1",
     "prettier": "^1.10.2",
-    "standard": "^10.0.3",
+    "standard": "^11.0.0",
     "yeoman-assert": "^3.1.0",
     "yeoman-test": "^1.7.0"
   },
   "lint-staged": {
-    "*.js": [
-      "prettier --write '{test/**/,generators/app/}*.js' | standard --fix",
+    "{test/**/,generators/app/}*.js": [
+      "prettier --write",
+      "standard --fix",
       "git add"
     ]
   },
