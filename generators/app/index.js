@@ -4,7 +4,6 @@ const Generator = require('yeoman-generator')
 const NODE = { name: 'Node.js', value: 0 }
 const SCALA = { name: 'Scala', value: 1 }
 
-const isNode = answers => answers.funcLanguage === NODE.value
 const isScala = answers => answers.funcLanguage === SCALA.value
 const validateNonEmpty = answer => answer !== undefined && answer !== ''
 const validatePackageName = answer =>
@@ -37,14 +36,12 @@ module.exports = class extends Generator {
         name: 'dockerNamespace',
         message: "What's your Docker namespace or username?",
         store: true,
-        validate: validateNonEmpty,
-        when: isNode
+        validate: validateNonEmpty
       },
       {
         name: 'port',
         message: 'What port will this service use locally and in Docker?',
-        default: 3000,
-        when: isNode
+        default: 3000
       }
     ]).then(props => (this.props = props))
   }
@@ -92,10 +89,11 @@ module.exports = class extends Generator {
         'scala/project/plugins.sbt',
         'scala/src/main/resources/logback.xml',
         'scala/src/main/scala/packageName/Handler.scala',
-        'scala/src/main/scala/packageName/Main.scala',
+        'scala/src/main/scala/packageName/Server.scala',
         'scala/src/test/resources/logback-test.xml',
         'scala/src/test/scala/packageName/HandlerSpec.scala',
         'scala/.gitignore',
+        'scala/Dockerfile',
         'scala/build.sbt',
         'scala/package.json',
         'scala/README.md',
@@ -114,7 +112,9 @@ module.exports = class extends Generator {
           ),
           {
             serviceName: this.props.serviceName,
-            packageName: this.props.packageName
+            packageName: this.props.packageName,
+            dockerNamespace: this.props.dockerNamespace,
+            port: this.props.port
           }
         )
       )

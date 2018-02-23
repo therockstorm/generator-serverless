@@ -1,7 +1,7 @@
 import { createServer } from 'http'
 import { handle } from './src/handler'
 
-const PORT = <%= port %>;
+const PORT = <%= port %>
 const EVENT = { key1: 'value1' }
 
 const requestHandler = (req, res) =>

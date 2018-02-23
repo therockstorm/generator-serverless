@@ -4,9 +4,11 @@
   "scripts": {
     "build": "sbt test assembly",
     "deploy": "npm run build && serverless deploy --verbose",
+    "deploy:docker": "npm run build && node ./node_modules/.bin/docker-cli publish <%= dockerNamespace %>/${npm_package_name} --tag $(git rev-parse HEAD)",
     "verify": "npm run deploy -- --noDeploy"
   },
   "devDependencies": {
+    "@therockstorm/docker-cli": "^1.0.5",
     "serverless": "^1.26.0"
   },
   "private": true
