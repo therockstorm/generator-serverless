@@ -8,8 +8,8 @@
     "verify": "npm run deploy -- --noDeploy"
   },
   "devDependencies": {
-    "@therockstorm/docker-cli": "^1.0.5",
-    "serverless": "^1.26.0"
+    "@therockstorm/docker-cli": "^1.0.6",
+    "serverless": "^1.26.1"
   },
   "private": true
 }

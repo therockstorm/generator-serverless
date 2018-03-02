@@ -1,10 +1,9 @@
 const { join } = require('path')
 const slsw = require('serverless-webpack')
 const nodeExternals = require('webpack-node-externals')
-const MinifyPlugin = require('babel-minify-webpack-plugin')
-const { ModuleConcatenationPlugin } = require('webpack').optimize
 
 module.exports = {
+  mode: process.env.NODE_ENV || 'production',
   entry: Object.assign({ server: './server.js' }, slsw.lib.entries),
   output: {
     libraryTarget: 'commonjs',
@@ -27,6 +26,5 @@ module.exports = {
         }
       }
     ]
-  },
-  plugins: [new ModuleConcatenationPlugin(), new MinifyPlugin()]
+  }
 }
