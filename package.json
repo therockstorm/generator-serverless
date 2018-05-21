@@ -31,16 +31,16 @@
     "watch": "npm test -- --watch"
   },
   "dependencies": {
-    "yeoman-generator": "^2.0.3"
+    "yeoman-generator": "^2.0.5"
   },
   "devDependencies": {
     "husky": "^0.14.3",
-    "lint-staged": "^7.0.4",
-    "mocha": "^5.0.5",
-    "prettier": "^1.11.1",
+    "lint-staged": "^7.1.2",
+    "mocha": "^5.2.0",
+    "prettier": "^1.12.1",
     "standard": "^11.0.1",
     "yeoman-assert": "^3.1.1",
-    "yeoman-test": "^1.7.0"
+    "yeoman-test": "^1.7.2"
   },
   "lint-staged": {
     "{test/**/,generators/app/}*.js": [
