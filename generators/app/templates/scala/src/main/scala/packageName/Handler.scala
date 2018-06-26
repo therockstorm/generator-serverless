@@ -15,7 +15,7 @@ case class Response(@BeanProperty var statusCode: Int, @BeanProperty var body: S
 }
 
 class Handler extends RequestHandler[Request, Response] {
-  private lazy val log: Logger = LoggerFactory.getLogger(classOf[Handler])
+  private lazy val log: Logger = LoggerFactory.getLogger(getClass)
 
   override def handleRequest(input: Request, context: Context): Response = {
     log.info(input.toString)
