@@ -17,22 +17,22 @@
     "watch": "npm test -- --watch"
   },
   "dependencies": {
-    "@therockstorm/utils": "^1.0.7"
+    "@therockstorm/utils": "^2.0.8"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.51",
-    "@babel/preset-env": "^7.0.0-beta.51",
-    "@babel/register": "^7.0.0-beta.51",
+    "@babel/core": "^7.0.0-beta.54",
+    "@babel/preset-env": "^7.0.0-beta.54",
+    "@babel/register": "^7.0.0-beta.54",
     "@therockstorm/docker-cli": "^1.0.6",
     "babel-loader": "^8.0.0-beta.4",
     "husky": "^0.14.3",
     "lint-staged": "^7.2.0",
     "mocha": "^5.2.0",
-    "prettier": "^1.13.6",
-    "serverless": "^1.27.3",
-    "serverless-webpack": "^5.1.5",
+    "prettier": "^1.13.7",
+    "serverless": "^1.28.0",
+    "serverless-webpack": "^5.2.0",
     "standard": "^11.0.1",
-    "webpack": "^4.12.1",
+    "webpack": "^4.16.1",
     "webpack-node-externals": "^1.7.2"
   },
   "private": true,
