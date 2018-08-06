@@ -1,24 +1,19 @@
 package <%= packageName %>
 
-import com.amazonaws.services.lambda.runtime.{Context, RequestHandler}
-import org.slf4j.{Logger, LoggerFactory}
+import com.amazonaws.services.lambda.runtime.Context
+import io.circe.generic.auto._
+import io.github.mkotsur.aws.handler.Lambda
+import io.github.mkotsur.aws.handler.Lambda._
+import org.apache.logging.log4j.{LogManager, Logger}
 
-import scala.beans.BeanProperty
-import scala.language.postfixOps
+case class Request(id: String)
+case class Response(statusCode: Int, body: String)
 
-case class Request(@BeanProperty var id: String) {
-  def this() = this("")
-}
+class Handler extends Lambda[Request, Response] {
+  protected def log: Logger = LogManager.getLogger(getClass)
 
-case class Response(@BeanProperty var statusCode: Int, @BeanProperty var body: String) {
-  def this() = this(0, "")
-}
-
-class Handler extends RequestHandler[Request, Response] {
-  private lazy val log: Logger = LoggerFactory.getLogger(getClass)
-
-  override def handleRequest(input: Request, context: Context): Response = {
-    log.info(input.toString)
-    Response(200, input.id)
+  override def handleRequest(event: Request, context: Context): Response = {
+    log.info(event)
+    Response(200, event.id)
   }
 }

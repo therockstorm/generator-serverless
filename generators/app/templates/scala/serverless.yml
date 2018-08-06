@@ -15,4 +15,4 @@ package:
 
 functions:
   func:
-    handler: <%= packageName %>.Handler
+    handler: <%= packageName %>.Handler::handle

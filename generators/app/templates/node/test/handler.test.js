@@ -1,5 +1,5 @@
-import assert from 'assert'
-import { handle } from '../src/handler'
+const assert = require('assert')
+const { handle } = require('../src/handler')
 
 describe('handler', () => {
   const res = body => ({ statusCode: 200, body })

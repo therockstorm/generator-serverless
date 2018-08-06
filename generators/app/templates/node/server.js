@@ -1,5 +1,5 @@
-import { createServer } from 'http'
-import { handle } from './src/handler'
+const { createServer } = require('http')
+const { handle } = require('./src/handler')
 
 const PORT = <%= port %>
 const EVENT = { key1: 'value1' }

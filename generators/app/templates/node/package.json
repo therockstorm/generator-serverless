@@ -12,27 +12,23 @@
     "lint": "standard --fix",
     "start": "npm run build && cd dist/service && node server.js",
     "pretest": "npm run format && npm run lint",
-    "test": "ENVIRONMENT=test mocha --require @babel/register",
+    "test": "ENVIRONMENT=test mocha",
     "verify": "npm run deploy -- --noDeploy",
     "watch": "npm test -- --watch"
   },
   "dependencies": {
-    "@therockstorm/utils": "^2.0.8"
+    "@therockstorm/utils": "^2.0.9"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.54",
-    "@babel/preset-env": "^7.0.0-beta.54",
-    "@babel/register": "^7.0.0-beta.54",
     "@therockstorm/docker-cli": "^1.0.6",
-    "babel-loader": "^8.0.0-beta.4",
     "husky": "^0.14.3",
     "lint-staged": "^7.2.0",
     "mocha": "^5.2.0",
-    "prettier": "^1.13.7",
-    "serverless": "^1.28.0",
+    "prettier": "^1.14.0",
+    "serverless": "^1.29.2",
     "serverless-webpack": "^5.2.0",
     "standard": "^11.0.1",
-    "webpack": "^4.16.1",
+    "webpack": "^4.16.4",
     "webpack-node-externals": "^1.7.2"
   },
   "private": true,
@@ -41,11 +37,6 @@
       "prettier --write",
       "standard --fix",
       "git add"
-    ]
-  },
-  "babel": {
-    "presets": [
-      ["@babel/preset-env", { "targets": { "node": "8.10" } }]
     ]
   },
   "prettier": {

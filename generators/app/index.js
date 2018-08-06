@@ -84,13 +84,12 @@ module.exports = class extends Generator {
   _writeScala (common) {
     common
       .concat([
-        'scala/project/assembly.sbt',
         'scala/project/build.properties',
         'scala/project/plugins.sbt',
-        'scala/src/main/resources/logback.xml',
+        'scala/src/main/resources/log4j2.xml',
         'scala/src/main/scala/packageName/Handler.scala',
         'scala/src/main/scala/packageName/Server.scala',
-        'scala/src/test/resources/logback-test.xml',
+        'scala/src/test/resources/log4j2-test.xml',
         'scala/src/test/scala/packageName/HandlerSpec.scala',
         'scala/.gitignore',
         'scala/Dockerfile',

@@ -1,6 +1,6 @@
 {
   "name": "@therockstorm/generator-serverless",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Yeoman generator for Serverless Node.js functions.",
   "keywords": [
     "yeoman-generator"
@@ -37,10 +37,10 @@
     "husky": "^0.14.3",
     "lint-staged": "^7.2.0",
     "mocha": "^5.2.0",
-    "prettier": "^1.13.7",
+    "prettier": "^1.14.0",
     "standard": "^11.0.1",
     "yeoman-assert": "^3.1.1",
-    "yeoman-test": "^1.8.0"
+    "yeoman-test": "^1.9.1"
   },
   "lint-staged": {
     "{test/**/,generators/app/}*.js": [
