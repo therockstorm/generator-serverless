@@ -8,7 +8,7 @@
     "precommit": "lint-staged",
     "deploy": "npm test && serverless deploy --verbose",
     "deploy:docker": "npm run test && npm run build:docker && cd dist/service && node ../../node_modules/.bin/docker-cli publish <%= dockerNamespace %>/${npm_package_name} --tag $(git rev-parse HEAD)",
-    "format": "prettier --write '{,!(dist)/**/}*.js'",
+    "format": "prettier --write '{,!(dist)/**/}*.+(js|json|md|yml)'",
     "lint": "standard --fix",
     "start": "npm run build && cd dist/service && node server.js",
     "pretest": "npm run format && npm run lint",
@@ -28,7 +28,7 @@
     "serverless": "^1.29.2",
     "serverless-webpack": "^5.2.0",
     "standard": "^11.0.1",
-    "webpack": "^4.16.4",
+    "webpack": "^4.16.5",
     "webpack-node-externals": "^1.7.2"
   },
   "private": true,
@@ -36,6 +36,10 @@
     "*.js": [
       "prettier --write",
       "standard --fix",
+      "git add"
+    ],
+    "*.{json,md,yml}": [
+      "prettier --write",
       "git add"
     ]
   },
