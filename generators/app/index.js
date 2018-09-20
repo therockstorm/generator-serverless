@@ -2,9 +2,12 @@ const path = require('path')
 const Generator = require('yeoman-generator')
 
 const NODE = { name: 'Node.js', value: 0 }
-const SCALA = { name: 'Scala', value: 1 }
+const TYPESCRIPT = { name: 'TypeScript', value: 1 }
+const SCALA = { name: 'Scala', value: 2 }
 
+const isTypeScript = answers => answers.funcLanguage === TYPESCRIPT.value
 const isScala = answers => answers.funcLanguage === SCALA.value
+const dockerPrompt = answers => answers.includeDocker && !isTypeScript(answers)
 const validateNonEmpty = answer => answer !== undefined && answer !== ''
 const validatePackageName = answer =>
   validateNonEmpty(answer) && answer.split('.').length === 3
@@ -14,10 +17,9 @@ module.exports = class extends Generator {
     return this.prompt([
       {
         name: 'funcLanguage',
-
         message: 'Choose a language for your function:',
         type: 'list',
-        choices: [NODE, SCALA]
+        choices: [NODE, TYPESCRIPT, SCALA]
       },
       {
         name: 'serviceName',
@@ -28,20 +30,26 @@ module.exports = class extends Generator {
         name: 'packageName',
         message:
           "What's the name of your package name (e.g. com.example.hello)?",
-        store: true,
         validate: validatePackageName,
         when: isScala
       },
       {
+        type: 'confirm',
+        name: 'includeDocker',
+        message: 'Would you like to generate a Dockerfile?',
+        when: answers => !isTypeScript(answers)
+      },
+      {
         name: 'dockerNamespace',
         message: "What's your Docker namespace or username?",
-        store: true,
-        validate: validateNonEmpty
+        validate: validateNonEmpty,
+        when: dockerPrompt
       },
       {
         name: 'port',
         message: 'What port will this service use locally and in Docker?',
-        default: 3000
+        default: 3000,
+        when: dockerPrompt
       }
     ]).then(props => (this.props = props))
   }
@@ -49,22 +57,33 @@ module.exports = class extends Generator {
   writing () {
     this.log(this.props)
     const common = ['.nvmrc', '.editorconfig']
-    this.props.funcLanguage === NODE.value
-      ? this._writeNode(common)
-      : this._writeScala(common)
+
+    switch (this.props.funcLanguage) {
+      case TYPESCRIPT.value:
+        return this._writeTypeScript(common)
+      case SCALA.value:
+        return this._writeScala(common)
+      default:
+        return this._writeNode(common)
+    }
   }
 
   _writeNode (common) {
+    if (this.props.includeDocker) {
+      common = common.concat([
+        'node/Dockerfile',
+        'node/.dockerignore',
+        'node/server.js'
+      ])
+    }
+
     common
       .concat([
         'node/src/handler.js',
         'node/test/handler.test.js',
-        'node/.dockerignore',
         'node/.gitignore',
-        'node/Dockerfile',
         'node/package.json',
         'node/README.md',
-        'node/server.js',
         'node/serverless.yml',
         'node/webpack.config.js'
       ])
@@ -81,18 +100,45 @@ module.exports = class extends Generator {
       )
   }
 
+  _writeTypeScript (common) {
+    common
+      .concat([
+        'typeScript/src/handler.ts',
+        'typeScript/test/handler.test.ts',
+        'typeScript/.gitignore',
+        'typeScript/package.json',
+        'typeScript/README.md',
+        'typeScript/serverless.yml',
+        'typeScript/source-map-install.js',
+        'typeScript/tsconfig.json',
+        'typeScript/webpack.config.js'
+      ])
+      .forEach(p =>
+        this.fs.copyTpl(
+          this.templatePath(p),
+          this.destinationPath(p.replace('typeScript/', '')),
+          { serviceName: this.props.serviceName }
+        )
+      )
+  }
+
   _writeScala (common) {
+    if (this.props.includeDocker) {
+      common = common.concat([
+        'scala/Dockerfile',
+        'scala/src/main/scala/packageName/Server.scala'
+      ])
+    }
+
     common
       .concat([
         'scala/project/build.properties',
         'scala/project/plugins.sbt',
         'scala/src/main/resources/log4j2.xml',
         'scala/src/main/scala/packageName/Handler.scala',
-        'scala/src/main/scala/packageName/Server.scala',
         'scala/src/test/resources/log4j2-test.xml',
         'scala/src/test/scala/packageName/HandlerSpec.scala',
         'scala/.gitignore',
-        'scala/Dockerfile',
         'scala/build.sbt',
         'scala/package.json',
         'scala/README.md',
@@ -123,8 +169,6 @@ module.exports = class extends Generator {
     this.spawnCommandSync('git', ['init'])
     this.spawnCommandSync('nvm', ['install'])
     this.spawnCommandSync('nvm', ['use'])
-    this.installDependencies({ npm: true, bower: false }).then(() =>
-      this.log("You're ready to go, check out the README for more!")
-    )
+    this.installDependencies({ npm: true, bower: false })
   }
 }

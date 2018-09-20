@@ -2,7 +2,8 @@ const assert = require('yeoman-assert')
 const helpers = require('yeoman-test')
 
 const NODE = 0
-const SCALA = 1
+const TYPESCRIPT = 1
+const SCALA = 2
 
 describe('generator-serverless:app', () => {
   const run = funcLanguage =>
@@ -10,7 +11,8 @@ describe('generator-serverless:app', () => {
       .run(require('path').join(__dirname, '../generators/app'))
       .withPrompts({
         funcLanguage,
-        packageName: 'com.example.hello'
+        packageName: 'com.example.hello',
+        includeDocker: true
       })
 
   it('creates files for Node', () =>
@@ -27,6 +29,23 @@ describe('generator-serverless:app', () => {
         'README.md',
         'server.js',
         'serverless.yml',
+        'webpack.config.js'
+      ])
+    ))
+
+  it('creates files for TypeScript', () =>
+    run(TYPESCRIPT).then(() =>
+      assert.file([
+        '.editorconfig',
+        '.nvmrc',
+        'src/handler.ts',
+        'test/handler.test.ts',
+        '.gitignore',
+        'package.json',
+        'README.md',
+        'serverless.yml',
+        'source-map-install.js',
+        'tsconfig.json',
         'webpack.config.js'
       ])
     ))

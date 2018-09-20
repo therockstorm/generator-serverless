@@ -17,18 +17,18 @@
     "watch": "npm test -- --watch"
   },
   "dependencies": {
-    "@therockstorm/utils": "^2.0.9"
+    "@therockstorm/utils": "^2.1.0"
   },
   "devDependencies": {
     "@therockstorm/docker-cli": "^1.0.6",
     "husky": "^0.14.3",
-    "lint-staged": "^7.2.0",
+    "lint-staged": "^7.3.0",
     "mocha": "^5.2.0",
-    "prettier": "^1.14.0",
-    "serverless": "^1.29.2",
+    "prettier": "^1.14.3",
+    "serverless": "^1.32.0",
     "serverless-webpack": "^5.2.0",
-    "standard": "^11.0.1",
-    "webpack": "^4.16.5",
+    "standard": "^12.0.1",
+    "webpack": "^4.19.1",
     "webpack-node-externals": "^1.7.2"
   },
   "private": true,

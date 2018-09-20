@@ -1,7 +1,5 @@
 # <%= serviceName %>
 
-TODO
-
 ## Developing
 
 ```shell
@@ -18,10 +16,6 @@ sbt run
 # Deploy serverless stack
 npm run deploy
 ```
-
-## API Reference
-
-TODO
 
 ## References
 
