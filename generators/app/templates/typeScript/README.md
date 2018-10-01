@@ -16,9 +16,6 @@ npm start
 ### Deploying / Publishing
 
 ```shell
-# Build and push Docker image
-npm run deploy:docker
-
 # Deploy serverless stack
 npm run deploy
 ```

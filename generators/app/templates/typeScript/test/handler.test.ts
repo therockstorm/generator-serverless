@@ -1,5 +1,4 @@
-const assert = require('assert')
-const { handle } = require('../src/handler')
+import { handle } from '../src/handler'
 
 const res = body => ({ statusCode: 200, body })
 

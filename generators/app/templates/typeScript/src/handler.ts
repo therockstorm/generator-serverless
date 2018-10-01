@@ -1,7 +1,8 @@
-const { log } = require('@therockstorm/utils')
+import { log } from '@therockstorm/utils'
 import { Callback, Context, Handler, ScheduledEvent } from 'aws-lambda'
 
-const res = body => ({ statusCode: 200, body: JSON.stringify(body) })
+const res = (body: any) =>
+  ({ statusCode: 200, body: JSON.stringify(body) })
 
 // const errorRes = err => res({ error: err.message || err })
 

@@ -106,6 +106,7 @@ module.exports = class extends Generator {
         'typeScript/src/handler.ts',
         'typeScript/test/handler.test.ts',
         'typeScript/.gitignore',
+        'typeScript/jest.config.js',
         'typeScript/package.json',
         'typeScript/README.md',
         'typeScript/serverless.yml',

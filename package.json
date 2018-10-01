@@ -23,7 +23,6 @@
     "url": "https://github.com/therockstorm/generator-serverless.git"
   },
   "scripts": {
-    "precommit": "lint-staged",
     "format": "prettier --write '{test/**/,generators/app/}*.js'",
     "lint": "standard --fix",
     "pretest": "npm run format && npm run lint",
@@ -34,13 +33,18 @@
     "yeoman-generator": "^3.1.1"
   },
   "devDependencies": {
-    "husky": "^0.14.3",
+    "husky": "^1.1.0",
     "lint-staged": "^7.3.0",
     "mocha": "^5.2.0",
     "prettier": "^1.14.3",
     "standard": "^12.0.1",
     "yeoman-assert": "^3.1.1",
     "yeoman-test": "^1.9.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "lint-staged": {
     "{test/**/,generators/app/}*.js": [
