@@ -1,16 +1,15 @@
 import { log } from '@therockstorm/utils'
-import { Callback, Context, Handler, ScheduledEvent } from 'aws-lambda'
+import {
+  Context,
+  APIGatewayProxyHandler,
+  APIGatewayProxyEvent,
+  APIGatewayProxyResult
+} from 'aws-lambda'
 
-const res = (body: any) =>
-  ({ statusCode: 200, body: JSON.stringify(body) })
-
-// const errorRes = err => res({ error: err.message || err })
-
-export const handle: Handler = async (
-  event: ScheduledEvent,
-  context: Context,
-  cb: Callback
-) => {
-  log(JSON.stringify(event), JSON.stringify(context))
-  return cb(null, res(event))
+export const handle: APIGatewayProxyHandler = async (
+  evt: APIGatewayProxyEvent,
+  ctx: Context
+): Promise<APIGatewayProxyResult> => {
+  log(JSON.stringify(evt), JSON.stringify(ctx))
+  return { statusCode: 200, body: JSON.stringify(evt) }
 }
