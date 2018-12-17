@@ -81,7 +81,7 @@ module.exports = class extends Generator {
       .concat([
         'node/src/handler.js',
         'node/test/handler.test.js',
-        'node/.gitignore',
+        'node/gitignore',
         'node/package.json',
         'node/README.md',
         'node/serverless.yml',
@@ -90,7 +90,9 @@ module.exports = class extends Generator {
       .forEach(p =>
         this.fs.copyTpl(
           this.templatePath(p),
-          this.destinationPath(p.replace('node/', '')),
+          this.destinationPath(
+            p.replace('node/', '').replace('gitignore', '.gitignore')
+          ),
           {
             serviceName: this.props.serviceName,
             dockerNamespace: this.props.dockerNamespace,
@@ -105,7 +107,7 @@ module.exports = class extends Generator {
       .concat([
         'typeScript/src/handler.ts',
         'typeScript/test/handler.test.ts',
-        'typeScript/.gitignore',
+        'typeScript/gitignore',
         'typeScript/jest.config.js',
         'typeScript/package.json',
         'typeScript/README.md',
@@ -117,7 +119,9 @@ module.exports = class extends Generator {
       .forEach(p =>
         this.fs.copyTpl(
           this.templatePath(p),
-          this.destinationPath(p.replace('typeScript/', '')),
+          this.destinationPath(
+            p.replace('typeScript/', '').replace('gitignore', '.gitignore')
+          ),
           { serviceName: this.props.serviceName }
         )
       )
@@ -139,7 +143,7 @@ module.exports = class extends Generator {
         'scala/src/main/scala/packageName/Handler.scala',
         'scala/src/test/resources/log4j2-test.xml',
         'scala/src/test/scala/packageName/HandlerSpec.scala',
-        'scala/.gitignore',
+        'scala/gitignore',
         'scala/build.sbt',
         'scala/package.json',
         'scala/README.md',
@@ -151,6 +155,7 @@ module.exports = class extends Generator {
           this.destinationPath(
             p
               .replace('scala/', '')
+              .replace('gitignore', '.gitignore')
               .replace(
                 'packageName/',
                 `${path.join(...this.props.packageName.split('.'))}/`
