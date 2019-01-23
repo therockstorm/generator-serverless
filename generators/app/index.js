@@ -112,7 +112,6 @@ module.exports = class extends Generator {
         'typeScript/package.json',
         'typeScript/README.md',
         'typeScript/serverless.yml',
-        'typeScript/sourceMapInstall.js',
         'typeScript/tsconfig.json',
         'typeScript/webpack.config.js'
       ])

@@ -13,6 +13,9 @@ provider:
     ENVIRONMENT: ${self:provider.stage}
     PROJECT: ${self:service.name}
 
+package:
+  individually: true
+
 plugins:
   - serverless-webpack
 

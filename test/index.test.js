@@ -45,7 +45,6 @@ describe('generator-serverless:app', () => {
         'package.json',
         'README.md',
         'serverless.yml',
-        'sourceMapInstall.js',
         'tsconfig.json',
         'webpack.config.js'
       ])
