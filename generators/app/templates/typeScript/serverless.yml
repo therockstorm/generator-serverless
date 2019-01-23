@@ -4,18 +4,22 @@ provider:
   name: aws
   runtime: nodejs8.10
   region: us-west-2
-  stage: ${env:ENVIRONMENT}
+  stage: ${opt:stage, env:ENVIRONMENT}
   timeout: 15
   memorySize: 128
   environment:
     ENVIRONMENT: ${self:provider.stage}
+  tags:
+    ENVIRONMENT: ${self:provider.stage}
+    PROJECT: ${self:service.name}
 
 plugins:
   - serverless-webpack
 
 custom:
   webpack:
-    includeModules: true
+    includeModules:
+      forceExclude: [aws-sdk]
 
 functions:
   func:

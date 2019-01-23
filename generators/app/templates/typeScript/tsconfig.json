@@ -1,15 +1,16 @@
 {
   "compilerOptions": {
-    "sourceMap": true,
     "esModuleInterop": true,
-    "strict": true,
-    "noImplicitReturns": true,
+    "lib": ["esnext"],
+    "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "target": "es2015",
-    "lib": ["esnext"],
-    "moduleResolution": "node"
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "es2017"
   },
-  "include": ["./src/**/*"]
+  "include": ["src"]
 }
