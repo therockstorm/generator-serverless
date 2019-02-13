@@ -8,9 +8,10 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "resolveJsonModule": true,
-    "sourceMap": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
     "strict": true,
     "target": "es2017"
   },
-  "include": ["src"]
+  "include": ["src", "test"]
 }
