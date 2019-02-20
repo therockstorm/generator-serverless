@@ -2,16 +2,16 @@ service: ${file(./package.json):name}
 
 provider:
   name: aws
-  runtime: nodejs8.10
   region: us-west-2
+  runtime: nodejs8.10
   stage: ${opt:stage, env:ENVIRONMENT}
-  timeout: 15
   memorySize: 128
-  environment:
-    ENVIRONMENT: ${self:provider.stage}
-  tags:
-    ENVIRONMENT: ${self:provider.stage}
-    PROJECT: ${self:service.name}
+  timeout: 10
+  deploymentBucket:
+    name: ${env:DEPLOYMENT_BUCKET}
+    serverSideEncryption: AES256
+  tags: ${self:custom.tags}
+  stackTags: ${self:custom.tags}
 
 package:
   individually: true
@@ -20,6 +20,13 @@ plugins:
   - serverless-webpack
 
 custom:
+  project: ${self:service.name}
+  tags:
+    Creator: serverless
+    Environment: ${self:provider.stage}
+    Project: ${self:service.name}
+    'org.label-schema.vcs-url': ${env:GIT_URL, 'n/a'}
+    'org.label-schema.vcs-ref': ${env:GIT_COMMIT, 'n/a'}
   webpack:
     includeModules:
       forceExclude: [aws-sdk]

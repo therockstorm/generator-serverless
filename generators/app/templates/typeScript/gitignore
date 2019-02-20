@@ -1,5 +1,6 @@
 .DS_Store
-.serverless
-.vscode
-.webpack
-node_modules
+
+.serverless/
+.vscode/
+.webpack/
+node_modules/
