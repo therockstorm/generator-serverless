@@ -7,8 +7,9 @@
     "deploy": "npm test && serverless deploy --verbose",
     "format": "prettier --write '{,!(.serverless|.webpack)/**/}*.+(js|jsx|ts|tsx|json|yml|yaml|md|html|css|less|scss|graphql)'",
     "invoke": "ENVIRONMENT=local sls invoke local --function func",
+    "lint": "tslint './**/*.ts' --exclude './node_modules/**/*.ts' --fix",
     "jest": "ENVIRONMENT=test jest",
-    "test": "npm run jest && serverless package",
+    "test": "npm run lint && npm run jest && serverless package",
     "watch": "npm run jest -- --watch"
   },
   "dependencies": {
@@ -28,6 +29,7 @@
     "ts-jest": "^24.0.0",
     "ts-loader": "^5.3.3",
     "tslint": "^5.12.1",
+    "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.3.3",
     "webpack": "^4.29.5",
     "webpack-node-externals": "^1.7.2"
@@ -39,6 +41,9 @@
     }
   },
   "lint-staged": {
+    "*.{ts,tsx}": [
+      "tslint --fix"
+    ],
     "*.{js,jsx,ts,tsx,json,yml,yaml,md,html,css,less,scss,graphql}": [
       "prettier --write",
       "git add"

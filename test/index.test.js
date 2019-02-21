@@ -46,6 +46,7 @@ describe('generator-serverless:app', () => {
         'README.md',
         'serverless.yml',
         'tsconfig.json',
+        'tslint.yml',
         'webpack.config.js'
       ])
     ))

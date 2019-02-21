@@ -1,6 +1,6 @@
 {
   "name": "@therockstorm/generator-serverless",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "Yeoman generator for Serverless functions.",
   "keywords": [
     "yeoman-generator"

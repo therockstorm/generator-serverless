@@ -113,6 +113,7 @@ module.exports = class extends Generator {
         'typeScript/README.md',
         'typeScript/serverless.yml',
         'typeScript/tsconfig.json',
+        'typeScript/tslint.yml',
         'typeScript/webpack.config.js'
       ])
       .forEach(p =>
