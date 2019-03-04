@@ -41,10 +41,9 @@ describe('generator-serverless:app', () => {
         'src/handler.ts',
         'test/handler.test.ts',
         '.gitignore',
-        'jest.config.js',
         'package.json',
         'README.md',
-        'serverless.yml',
+        'serverless.js',
         'tsconfig.json',
         'tslint.yml',
         'webpack.config.js'
