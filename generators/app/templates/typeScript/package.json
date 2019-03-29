@@ -25,7 +25,7 @@
   "private": true,
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "skripts lint-staged"
     }
   }
 }
