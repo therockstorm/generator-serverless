@@ -1,6 +1,6 @@
 {
   "name": "@therockstorm/generator-serverless",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "Yeoman generator for Serverless functions.",
   "keywords": [
     "yeoman-generator"
@@ -30,18 +30,18 @@
     "watch": "npm test -- --watch"
   },
   "dependencies": {
-    "yeoman-generator": "^3.2.0"
+    "yeoman-generator": "^4.0.1"
   },
   "devDependencies": {
-    "husky": "^2.2.0",
+    "husky": "^2.3.0",
     "just-extend": ">=4.0.2",
-    "lint-staged": "^8.1.6",
+    "lint-staged": "^8.1.7",
     "lodash": ">=4.17.11",
     "mocha": "^6.1.4",
-    "prettier": "^1.17.0",
+    "prettier": "^1.17.1",
     "standard": "^12.0.1",
     "yeoman-assert": "^3.1.1",
-    "yeoman-test": "^1.9.1"
+    "yeoman-test": "^2.0.0"
   },
   "husky": {
     "hooks": {
