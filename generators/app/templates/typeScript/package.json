@@ -14,11 +14,11 @@
   },
   "dependencies": {
     "@therockstorm/utils": "^3.0.11",
-    "source-map-support": "^0.5.12"
+    "source-map-support": "^0.5.13"
   },
   "devDependencies": {
-    "husky": "^3.0.1",
-    "skripts": "0.0.19",
+    "husky": "^3.0.3",
+    "skripts": "0.0.20",
     "tslint": "^5.18.0",
     "typescript": "^3.5.3"
   },
