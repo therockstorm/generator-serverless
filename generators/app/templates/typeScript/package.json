@@ -17,9 +17,9 @@
     "source-map-support": "^0.5.13"
   },
   "devDependencies": {
-    "husky": "^3.0.3",
-    "skripts": "0.0.20",
-    "tslint": "^5.18.0",
+    "husky": "^3.0.4",
+    "skripts": "0.0.21",
+    "tslint": "^5.19.0",
     "typescript": "^3.5.3"
   },
   "private": true,
