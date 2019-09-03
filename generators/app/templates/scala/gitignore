@@ -1,9 +1,0 @@
-*.log
-.DS_Store
-
-.idea
-.vscode
-.serverless
-node_modules
-target
-project/project

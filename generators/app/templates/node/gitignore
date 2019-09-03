@@ -1,6 +1,0 @@
-.DS_Store
-
-.serverless
-.vscode
-.webpack
-node_modules
