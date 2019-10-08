@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "scripts": {
     "build": "sls webpack",
-    "clean": "skripts src scripts --pattern '*.js'",
+    "clean": "skripts clean src scripts --pattern '*.js'",
     "deploy": "npm test && sls deploy",
     "format": "skripts prettier",
-    "invoke": "ENVIRONMENT=local sls invoke local --function func",
-    "lint": "skripts tslint",
-    "jest": "ENVIRONMENT=test skripts jest",
+    "invoke": "STAGE=local sls invoke local --function func",
+    "lint": "skripts eslint",
+    "jest": "STAGE=test skripts jest",
     "test": "npm run lint && npm run jest && sls package",
     "watch": "npm run jest -- --watch"
   },
@@ -17,9 +17,9 @@
     "source-map-support": "^0.5.13"
   },
   "devDependencies": {
+    "eslint": "^6.5.1",
     "husky": "^3.0.8",
-    "skripts": "0.0.25",
-    "tslint": "^5.20.0",
+    "skripts": "0.1.2",
     "typescript": "^3.6.3"
   },
   "private": true,

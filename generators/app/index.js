@@ -17,15 +17,15 @@ module.exports = class extends Generator {
 
     return [
       '.editorconfig',
-      '.tool-versions',
+      '.nvmrc',
       'typeScript/src/handler.ts',
       'typeScript/test/handler.test.ts',
       'typeScript/gitignore',
+      'typeScript/.eslintrc',
       'typeScript/package.json',
       'typeScript/README.md',
       'typeScript/serverless.js',
       'typeScript/tsconfig.json',
-      'typeScript/tslint.yml',
       'typeScript/webpack.config.js'
     ].forEach(p =>
       this.fs.copyTpl(

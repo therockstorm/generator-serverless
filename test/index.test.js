@@ -9,15 +9,15 @@ describe('generator-serverless:app', () => {
       .then(() =>
         assert.file([
           '.editorconfig',
-          '.tool-versions',
+          '.nvmrc',
           'src/handler.ts',
           'test/handler.test.ts',
+          '.eslintrc',
           '.gitignore',
           'package.json',
           'README.md',
           'serverless.js',
           'tsconfig.json',
-          'tslint.yml',
           'webpack.config.js'
         ])
       ))
