@@ -2,15 +2,14 @@
   "name": "<%= serviceName %>",
   "version": "1.0.0",
   "scripts": {
-    "build": "sls webpack",
-    "clean": "skripts clean src scripts --pattern '*.js'",
-    "deploy": "npm test && sls deploy",
-    "format": "skripts prettier",
+    "analyze": "npm run lint && npm run test -- --coverage && npm run build",
+    "build": "sls package",
+    "clean": "rm -rf .serverless .webpack coverage",
+    "deploy": "sls deploy",
+    "format": "skripts format",
     "invoke": "STAGE=local sls invoke local --function func",
-    "lint": "skripts eslint",
-    "jest": "STAGE=test skripts jest",
-    "test": "npm run lint && npm run jest && sls package",
-    "watch": "npm run jest -- --watch"
+    "lint": "skripts lint",
+    "test": "skripts test"
   },
   "dependencies": {
     "@therockstorm/utils": "^3.0.12",
@@ -19,13 +18,13 @@
   "devDependencies": {
     "eslint": "^6.5.1",
     "husky": "^3.0.8",
-    "skripts": "0.1.2",
-    "typescript": "^3.6.3"
+    "skripts": "0.2.2",
+    "typescript": "^3.6.4"
   },
   "private": true,
   "husky": {
     "hooks": {
-      "pre-commit": "skripts lint-staged"
+      "pre-commit": "skripts pre-commit"
     }
   }
 }
