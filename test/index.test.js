@@ -15,6 +15,7 @@ describe('generator-serverless:app', () => {
           '.eslintrc',
           '.gitignore',
           'package.json',
+          'prettier.config.js',
           'README.md',
           'serverless.js',
           'tsconfig.json',

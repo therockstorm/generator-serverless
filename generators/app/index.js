@@ -23,6 +23,7 @@ module.exports = class extends Generator {
       'typeScript/gitignore',
       'typeScript/.eslintrc',
       'typeScript/package.json',
+      'typeScript/prettier.config.js',
       'typeScript/README.md',
       'typeScript/serverless.js',
       'typeScript/tsconfig.json',
