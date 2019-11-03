@@ -12,13 +12,13 @@
     "test": "skripts test"
   },
   "dependencies": {
-    "@therockstorm/utils": "^3.0.12",
-    "source-map-support": "^0.5.13"
+    "@therockstorm/utils": "^3.0.13",
+    "source-map-support": "^0.5.16"
   },
   "devDependencies": {
-    "eslint": "^6.5.1",
-    "husky": "^3.0.8",
-    "skripts": "0.2.2",
+    "eslint": "^6.6.0",
+    "husky": "^3.0.9",
+    "skripts": "0.2.4",
     "typescript": "^3.6.4"
   },
   "private": true,
