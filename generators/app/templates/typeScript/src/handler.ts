@@ -1,10 +1,12 @@
-import { log } from '@therockstorm/utils'
-import 'source-map-support/register'
+import { Atomilog } from "atomilog"
+import "source-map-support/register"
+
+const log = new Atomilog()
 
 export const handle = async (evt: {}): Promise<{
   statusCode: number
   body: string
 }> => {
-  log(JSON.stringify(evt))
+  log.info("Event received", { evt })
   return { statusCode: 200, body: JSON.stringify(evt) }
 }

@@ -7,18 +7,18 @@
     "clean": "rm -rf .serverless .webpack coverage",
     "deploy": "sls deploy",
     "format": "skripts format",
-    "invoke": "STAGE=local sls invoke local --function func",
-    "lint": "skripts lint",
+    "invoke:local": "STAGE=local sls invoke local --function func",
+    "lint": "skripts lint --fix",
     "test": "skripts test"
   },
   "dependencies": {
-    "@therockstorm/utils": "^3.0.13",
+    "atomilog": "^0.1.0",
     "source-map-support": "^0.5.16"
   },
   "devDependencies": {
     "eslint": "^6.6.0",
     "husky": "^3.0.9",
-    "skripts": "0.2.4",
+    "skripts": "0.3.0",
     "typescript": "^3.6.4"
   },
   "private": true,
