@@ -16,10 +16,10 @@
     "source-map-support": "^0.5.16"
   },
   "devDependencies": {
-    "eslint": "^6.7.1",
-    "husky": "^3.1.0",
-    "skripts": "0.4.0",
-    "typescript": "^3.7.2"
+    "eslint": "^6.8.0",
+    "husky": "^4.2.3",
+    "skripts": "0.5.0",
+    "typescript": "^3.8.3"
   },
   "private": true,
   "husky": {
