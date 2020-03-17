@@ -52,8 +52,7 @@
   "lint-staged": {
     "{test/**/,generators/app/}*.js": [
       "prettier --write",
-      "standard --fix",
-      "git add"
+      "standard --fix"
     ]
   },
   "prettier": {
