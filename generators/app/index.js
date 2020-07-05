@@ -9,7 +9,7 @@ module.exports = class extends Generator {
         message: "What's the name of your service?",
         default: path.basename(process.cwd())
       }
-    ]).then(ps => (this.props = ps))
+    ]).then((ps) => (this.props = ps))
   }
 
   writing () {
@@ -28,7 +28,7 @@ module.exports = class extends Generator {
       'typeScript/serverless.js',
       'typeScript/tsconfig.json',
       'typeScript/webpack.config.js'
-    ].forEach(p =>
+    ].forEach((p) =>
       this.fs.copyTpl(
         this.templatePath(p),
         this.destinationPath(
