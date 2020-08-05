@@ -12,14 +12,14 @@
     "test": "skripts test"
   },
   "dependencies": {
-    "atomilog": "^0.1.1",
+    "atomilog": "^0.2.0",
     "source-map-support": "^0.5.19"
   },
   "devDependencies": {
-    "eslint": "^7.4.0",
+    "eslint": "^7.6.0",
     "husky": "^4.2.5",
-    "skripts": "0.6.0",
-    "typescript": "^3.9.6"
+    "skripts": "0.7.0",
+    "typescript": "^3.9.7"
   },
   "private": true,
   "husky": {
