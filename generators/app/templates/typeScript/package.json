@@ -2,7 +2,7 @@
   "name": "<%= serviceName %>",
   "version": "1.0.0",
   "scripts": {
-    "analyze": "npm run lint && npm run test -- --coverage && npm run build",
+    "analyze": "yarn lint && yarn test --coverage && yarn build",
     "build": "sls package",
     "clean": "rm -rf .serverless .webpack coverage",
     "deploy": "sls deploy",
@@ -12,13 +12,14 @@
     "test": "skripts test"
   },
   "dependencies": {
-    "source-map-support": "^0.5.0"
+    "pino": "^6.11",
+    "source-map-support": "^0.5"
   },
   "devDependencies": {
-    "eslint": "^7.11.0",
-    "husky": "^4.3.0",
-    "skripts": "^0.8.0",
-    "typescript": "^4.0"
+    "eslint": "^7.18",
+    "husky": "^4.3",
+    "skripts": "^0.9",
+    "typescript": "^4"
   },
   "private": true,
   "husky": {

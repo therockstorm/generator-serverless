@@ -20,10 +20,10 @@ yo @therockstorm/serverless
 
 ```shell
 # Install dependencies
-nvm install && nvm use && npm install
+nvm install && nvm use && yarn
 
 # Run tests and lint
-npm test
+yarn test
 ```
 
 ## License
