@@ -12,7 +12,6 @@
     "test": "skripts test"
   },
   "dependencies": {
-    "pino": "^6.11",
     "source-map-support": "^0.5"
   },
   "devDependencies": {
