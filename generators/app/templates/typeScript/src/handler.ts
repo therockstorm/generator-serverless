@@ -1,9 +1,11 @@
-import * as pino from "pino"
+import pino from "pino"
 import "source-map-support/register"
 
-const log = pino();
+const log = pino()
 
-export const handle = async (evt: {}): Promise<{
+export const handle = async (
+  evt: Record<string, unknown>
+): Promise<{
   statusCode: number
   body: string
 }> => {
